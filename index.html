@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>재딱꼬이와의 추억</title>
+
+  <meta property="og:title" content="재딱꼬이와의 추억"/>
+  <meta property="og:description" content="우리의 추억 소환"/>
+  <meta property="og:image" content="image02.jpg"/>
+
+  <link rel="stylesheet" href="./index.css">
+</head>
+
+<body>
+  <div class="myTitle">
+    <h1>우리의 추억 소환</h1>
+    <a class="btn" href="tel:010-8937-2594">성아한테 전화하기</a>
+  </div>
+
+  <div class="box">
+    <div class="map" id="map"></div>
+    <div class="story">
+      <div class="img"></div>
+      <h2>제주도에서의 추억</h2>
+      <h3>제주 서귀포시 표선면 번영로 2650</h3>
+      <p>추웠지만 재밌었당<br>
+        카트도 내가 1등하고!<br>
+        장인은 장비탓 하지 않지..<br>
+        매롱</p>
+    </div>
+  </div>
+  <script type="text/javascript" src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=535068688f1a8bca1c21a9445ede0a89"></script>
+  <script>
+    var markerPosition = new kakao.maps.LatLng(126.787016, 33.3989830)
+    var mapContainer = document.getElementById('map'), // 지도를 표시할 div  
+        mapOption = { 
+            center: markerPosition, // 지도의 중심좌표
+            level: 3 // 지도의 확대 레벨
+        };
+
+    var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+
+    var imageSrc = "https://s3.ap-northeast-2.amazonaws.com/materials.spartacodingclub.kr/2021_05_free_parents/sparta-marker.png"; 
+    var imageSize = new kakao.maps.Size(65, 86); 
+    var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize); 
+    
+    var marker = new kakao.maps.Marker({
+        map: map,
+        position: markerPosition,
+        image : markerImage
+    });
+  </script>
+</body>
+</html>
